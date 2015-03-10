@@ -34,7 +34,6 @@ public void setBombs()
     //randomly picks where the bomb will be 
     int row = (int)(Math.random()*20); 
     int col = (int)(Math.random()*20);
-    
         if(bombs.contains(buttons[row][col])==false){
             bombs.add(buttons[row][col]);
         }
@@ -66,9 +65,8 @@ public void displayLosingMessage()
     buttons[i][8].setLabel(word.substring(i-10,i-9));
     
     }
-    for(int i = 0; i < 9; i++){
-        bombs.get(i);
-    }
+
+    
     
 }
 public void displayWinningMessage()
@@ -113,7 +111,7 @@ public class MSButton
     {
         clicked = true;
         somePressed++;
-        System.out.println(somePressed);
+        //System.out.println(somePressed);
         //your code here
         if(keyPressed == true){
             //toggles marked and not marked
@@ -121,7 +119,7 @@ public class MSButton
             
         }
         else if(bombs.contains(this)){
-           game = false;
+          game = false;
            
         }
         else if(countBombs(r,c) > 0){
@@ -166,13 +164,17 @@ public class MSButton
         else if( clicked && bombs.contains(this) ){
             fill(255,0,0);
             game = false;
+        
+            
+        }else if(bombs.contains(this)&&(game==false)){
+            fill(255,0,0);
         }
         else if(clicked){
-            fill( 200 );
+            fill(153,255,153);
            
         }
         else 
-            fill( 100 );
+            fill(96,157,0);
 
         rect(x, y, width, height);
         fill(0);
